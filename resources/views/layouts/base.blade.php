@@ -38,8 +38,14 @@
                 @if (Auth::user())
                 <div class="dropdown" style="float:right;">
                     <button style="background-color: white;"><div  style="color: rgb(0, 109, 128);" class="fas fa-user"></div></button>
-                    <div class="dropdown-content">
-                    <a href="#">My Account</a>
+                    <div class="dropdown-content">    
+                    @if(Auth::user()->profile_photo_path)
+                    <a href="#"> <img style="height: 50px;weidth:50px;" src="{{asset('assets/image/'.Auth::user()->profile_photo_path)}}"
+                        alt="{{ Auth::user()->name }}" />  <br> {{ Auth::user()->name }}</a>
+                    @else
+                    <a href="#"> <img class="h-12 w-12 rounded-full object-cover" src="{{Auth::user()->profile_photo_url}}"
+                        alt="{{ Auth::user()->name }}" />  <br> My Account</a>
+                    @endif
                     <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Log Out</a>
                     <form id="logout-form" method="POST" action="{{ route('logout') }}">
                         @csrf
@@ -82,100 +88,11 @@
 
     <!-- login form  -->
 
-    <div class="login-form-container">
-
-        <div id="close-login-btn" class="fas fa-times"></div>
-        @if (session('status'))
-        <div class="mb-4 font-medium text-sm text-green-600">
-            {{ session('status') }}
-        </div>
-        @endif
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
-            <!-- SignIn -->
-            <h3>sign in</h3>
-            <span>Email</span>
-            <input id="email" class="box" type="email" name="email" :value="old('email')" required autofocus>
-            <span>password</span>
-            <input id="password" class="box" type="password" name="password" required autocomplete="current-password">
-            <div class="checkbox">
-                <input type="checkbox" name="" id="remember-me">
-                <label for="remember-me"> remember me</label>
-            </div>
-            <input type="submit" value="sign in" class="btn">
-            @if (Route::has('password.request'))
-            <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                {{ __('Forgot your password?') }}
-            </a>
-            @endif
-            <p>don't have an account ? <a href="#" id="signup-btn">create one</a></p>
-
-        </form>
-    </div>
-
-    <div class="signup-form-container">
-
-        <div id="close-signup-btn" class="fas fa-times"></div>
-
-        <form method="POST" action="{{ route('register') }}">
-            @csrf
-            <!-- SignUp -->
-            <h3>sign up</h3>
-            <span>Name</span>
-            <input id="name" class="box" type="text" name="name" :value="old('name')" required autofocus
-                autocomplete="name">
-            <span>Email</span>
-            <input id="email" class="box" type="email" name="email" :value="old('email')" required>
-            {{-- <span>Phone</span>
-        <input type="text" name="" class="box" placeholder="enter your phone" id=""> --}}
-            <span>Password</span>
-            <input id="password" class="box" type="password" name="password" required autocomplete="new-password">
-            <span>Confirm Password</span>
-            <input id="password_confirmation" type="password" name="password_confirmation" required
-                autocomplete="new-password" class="box">
-            <div class="checkbox">
-                <input type="checkbox" name="" id="remember-me">
-                <label for="remember-me"> remember me</label>
-            </div>
-            <input type="submit" value="sign up" class="btn">
-            @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
-            <div class="mt-4">
-                <x-jet-label for="terms">
-                    <div class="flex items-center">
-                        <x-jet-checkbox name="terms" id="terms" />
-
-                        <div class="ml-2">
-                            {!! __('I agree to the :terms_of_service and :privacy_policy', [
-                            'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'"
-                                class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Terms of
-                                Service').'</a>',
-                            'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'"
-                                class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Privacy
-                                Policy').'</a>',
-                            ]) !!}
-                        </div>
-                    </div>
-                </x-jet-label>
-            </div>
-            @endif
-            <p>forget password ? <a href="#">click here</a></p>
-            <p>already have an account ? <a href="{{ route('login') }}">sign in</a></p>
-
-        </form>
-
-    </div>
-
-
-
+    @livewire('auth.login-component')
+    @livewire('auth.registration-component')
 
 
     {{$slot}}
-
-
-
-
-
-
 
 
 
@@ -231,13 +148,6 @@
     </section>
 
     <!-- footer section ends -->
-
-    <!-- loader  -->
-
-    <div class="loader-container">
-        <img src="{{asset("assets/image/loader-img.gif")}}" alt="">
-    </div>
-
 
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
     <!-- custom js file link  -->

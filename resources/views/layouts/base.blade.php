@@ -36,12 +36,13 @@
             <div class="icons">
                 <div id="search-btn" class="fas fa-search"></div>
                 @if (Auth::user())
-                <div class="dropdown" style="float:right;">
+                <div class="dropdown">
                     <button style="background-color: white;"><div  style="color: rgb(0, 109, 128);" class="fas fa-user"></div></button>
                     <div class="dropdown-content">    
                     @if(Auth::user()->profile_photo_path)
                     <a href="#"> <img style="height: 50px;weidth:50px;" src="{{asset('assets/image/'.Auth::user()->profile_photo_path)}}"
-                        alt="{{ Auth::user()->name }}" />  <br> {{ Auth::user()->name }}</a>
+                        alt="{{ Auth::user()->name }}" /></a>
+                    <a href="#"> <p style="font-size: 16px;"> <b>Name : </b>{{ Auth::user()->name }}</p></a>                     
                     @else
                     <a href="#"> <img class="h-12 w-12 rounded-full object-cover" src="{{Auth::user()->profile_photo_url}}"
                         alt="{{ Auth::user()->name }}" />  <br> My Account</a>
@@ -61,9 +62,10 @@
         </div>
 
         <div class="header-2">
-            <nav class="navbar">
+            <nav class="navbar" >
                 <a href="#home">home</a>
-                <a href="#home">all books</a>
+                <a href="{{route("author_dashboard")}}">Dashboard</a>
+                <a href="#">all books</a>
                 <a href="#home">sale books</a>
                 <a href="#featured">featured</a>
                 <a href="#arrivals">arrivals</a>
@@ -124,6 +126,7 @@
                 <h3>extra links</h3>
                 <a href="#"> <i class="fas fa-arrow-right"></i> Hearts Medi Study </a>
                 <a href="#"> <i class="fas fa-arrow-right"></i> Reviews </a>
+                <a href="#"> <i class="fas fa-arrow-right"></i> Blogs </a>
             </div>
 
             <div class="box">

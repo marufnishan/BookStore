@@ -6,6 +6,8 @@
 <link rel="stylesheet" href="{{asset("assets/css/collapsedsidebar.css")}}">
 <!-- Bootstrap CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+<!-- Font Awesome CSS -->
+<script src="https://kit.fontawesome.com/55d1e4a364.js" crossorigin="anonymous"></script>
 @livewireStyles
 </head>
 <body>
@@ -14,7 +16,7 @@
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
   <a href="#">Home</a>
   <a href="#">Course</a>
-  <a href="{{route("author_add_book")}}">Books</a>
+  <a href="{{route("author_books")}}">Books</a>
   <a href="#">My Course</a>
   <a href="#">Contuct Us</a>
   <a href="#">Event</a>

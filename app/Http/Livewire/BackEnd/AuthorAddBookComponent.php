@@ -38,7 +38,7 @@ class AuthorAddBookComponent extends Component
         $books->book_name = $this->book_name;
         $imageName = Carbon::now()->timestamp. '.' . $this->book_image->extension();
         $this->book_image->storeAs('book-images',$imageName);
-        $books->book_image = $imageName;     
+        $books->book_image = 'book-images/'.$imageName;     
         $books->book_description = $this->book_description;
         $books->book_category = $this->book_category;
         $books->book_type = $this->book_type;
@@ -48,15 +48,15 @@ class AuthorAddBookComponent extends Component
 
         $pdfName = Carbon::now()->timestamp. '.' . $this->book_pdf_file->extension();
         $this->book_pdf_file->storeAs('book-pdf',$pdfName);
-        $books->book_pdf_file = $pdfName;   
+        $books->book_pdf_file = 'book-pdf/'.$pdfName;   
         
         $pdfindexName = Carbon::now()->timestamp. '.' . $this->book_index_file->extension();
         $this->book_index_file->storeAs('book-index-pdf',$pdfindexName);
-        $books->book_index_file = $pdfindexName;
+        $books->book_index_file = 'book-index-pdf/'.$pdfindexName;
 
         $vedioName = Carbon::now()->timestamp. '.' . $this->book_demo_vedio->extension();
         $this->book_demo_vedio->storeAs('book-demo-vedio',$vedioName);
-        $books->book_demo_vedio = $vedioName;   
+        $books->book_demo_vedio = 'book-demo-vedio/'.$vedioName;   
         $books->save();
 
         session()->flash('message', 'Book Added successfully.');

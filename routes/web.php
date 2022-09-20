@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Livewire\BackEnd\AuthorAddBookComponent;
+use App\Http\Livewire\BackEnd\AuthorBookComponent;
 use App\Http\Livewire\BackEnd\AuthorDashboardComponent;
 use App\Http\Livewire\FrontEnd\HomeComponent;
 use Illuminate\Support\Facades\Route;
@@ -10,6 +11,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',HomeComponent::class);
 Route::get('/author/dashboard',AuthorDashboardComponent::class)->name('author_dashboard');
+Route::get('/author/books',AuthorBookComponent::class)->name('author_books');
 Route::get('/author/add_book',AuthorAddBookComponent::class)->name('author_add_book');
 
 Route::middleware([

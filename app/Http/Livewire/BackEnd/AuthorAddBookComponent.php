@@ -27,7 +27,7 @@ class AuthorAddBookComponent extends Component
         'book_image' => 'required|mimes:jpeg,png',
         'book_description' => 'required',
         'book_price' => 'required',
-        'book_pdf_file' => 'required|mimes:pdf|max:10000',
+        'book_pdf_file' => 'required',/* |mimes:pdf|max:10000 */
     ];
 
     public function addBook(){

@@ -10,7 +10,7 @@
 <script src="https://kit.fontawesome.com/55d1e4a364.js" crossorigin="anonymous"></script>
 @livewireStyles
 </head>
-<body>
+<body {{-- oncontextmenu="return false" --}}>
 
 <div id="mySidebar" class="sidebar">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
@@ -28,6 +28,31 @@
     onclick="openNav()">☰ DASHBOARD</button></div>
     {{$slot}}
 </div>
+
+{{-- copy past --}}
+{{-- <script>
+
+  document.onkeydown = function(e) {
+    if(e.keyCode == 123) {
+     return false;
+    }
+    if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)){
+     return false;
+    }
+    if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)){
+     return false;
+    }
+    if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)){
+     return false;
+    }
+
+    if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)){
+     return false;
+    }      
+ }
+
+</script> --}}
+{{-- copy past --}}
 
 <script>
 function openNav() {

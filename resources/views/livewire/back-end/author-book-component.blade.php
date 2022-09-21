@@ -38,9 +38,7 @@
                             </button>
                         </td>
                         <td>
-                            <button style="border: none;background-color: transparent;" wire:click="exportIndexPdf({{$book->id}})">
-                                <img src="{{asset('assets/image/svg-icon/pdf.png')}}" width="60" />
-                            </button>
+                            <a href="{{route('author_read_book',$book->id)}}"><img src="{{asset('assets/image/svg-icon/pdf.png')}}" width="60" /></a>
                         </td>
                         <td>
                             <video width="120" height="60" controls>

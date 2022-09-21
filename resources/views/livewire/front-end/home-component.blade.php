@@ -14,12 +14,9 @@
 
             <div class="swiper books-slider">
                 <div class="swiper-wrapper">
-                    <a href="#" class="swiper-slide"><img src="{{asset("assets/image/books/2.png")}}" alt=""></a>
-                    <a href="#" class="swiper-slide"><img src="{{asset("assets/image/books/3.png")}}" alt=""></a>
-                    <a href="#" class="swiper-slide"><img src="{{asset("assets/image/books/1.png")}}" alt=""></a>
-                    <a href="#" class="swiper-slide"><img src="{{asset("assets/image/books/10.png")}}" alt=""></a>
-                    <a href="#" class="swiper-slide"><img src="{{asset("assets/image/books/5.png")}}" alt=""></a>
-                    <a href="#" class="swiper-slide"><img src="{{asset("assets/image/books/6.png")}}" alt=""></a>
+                    @foreach($newbooks as $newbook)
+                    <a href="#" class="swiper-slide"><img src="{{asset('assets/image/'.$newbook->book_image)}}" alt=""></a>
+                    @endforeach
                 </div>
                 <img src="{{asset("assets/image/stand.png")}}" class="stand" alt="">
             </div>
@@ -39,156 +36,24 @@
         <div class="swiper featured-slider">
 
             <div class="swiper-wrapper">
-
+                @foreach($books as $book)
+                    
                 <div class="swiper-slide box">
                     <div class="icons">
                         <a href="#" class="fas fa-search"></a>
                         <a href="#" class="fas fa-eye"></a>
                     </div>
                     <div class="image">
-                        <img src="{{asset("assets/image/books/1.png")}}" alt="">
+                        <img src="{{asset('assets/image/'.$book->book_image)}}" alt="">
                     </div>
                     <div class="content">
-                        <h3>featured books</h3>
-                        <div class="price">৳15.99 <span>৳20.99</span></div>
+                        <h3>{{substr($book->book_name,0,28)}}</h3>
+                        <div class="price">৳ {{$book->book_sale_price}} <span>৳ {{$book->book_price}}</span></div>
                         <a href="#" class="btn">Buy Now</a>
                     </div>
                 </div>
 
-                <div class="swiper-slide box">
-                    <div class="icons">
-                        <a href="#" class="fas fa-search"></a>
-                        <a href="#" class="fas fa-eye"></a>
-                    </div>
-                    <div class="image">
-                        <img src="{{asset("assets/image/books/2.png")}}" alt="">
-                    </div>
-                    <div class="content">
-                        <h3>featured books</h3>
-                        <div class="price">৳15.99 <span>৳20.99</span></div>
-                        <a href="#" class="btn">Buy Now</a>
-                    </div>
-                </div>
-
-                <div class="swiper-slide box">
-                    <div class="icons">
-                        <a href="#" class="fas fa-search"></a>
-                        <a href="#" class="fas fa-eye"></a>
-                    </div>
-                    <div class="image">
-                        <img src="{{asset("assets/image/books/3.png")}}" alt="">
-                    </div>
-                    <div class="content">
-                        <h3>featured books</h3>
-                        <div class="price">৳15.99 <span>৳20.99</span></div>
-                        <a href="#" class="btn">Buy Now</a>
-                    </div>
-                </div>
-
-                <div class="swiper-slide box">
-                    <div class="icons">
-                        <a href="#" class="fas fa-search"></a>
-                        <a href="#" class="fas fa-eye"></a>
-                    </div>
-                    <div class="image">
-                        <img src="{{asset("assets/image/books/4.png")}}" alt="">
-                    </div>
-                    <div class="content">
-                        <h3>featured books</h3>
-                        <div class="price">৳15.99 <span>৳20.99</span></div>
-                        <a href="#" class="btn">Buy Now</a>
-                    </div>
-                </div>
-
-                <div class="swiper-slide box">
-                    <div class="icons">
-                        <a href="#" class="fas fa-search"></a>
-                        <a href="#" class="fas fa-eye"></a>
-                    </div>
-                    <div class="image">
-                        <img src="{{asset("assets/image/books/5.png")}}" alt="">
-                    </div>
-                    <div class="content">
-                        <h3>featured books</h3>
-                        <div class="price">৳15.99 <span>৳20.99</span></div>
-                        <a href="#" class="btn">Buy Now</a>
-                    </div>
-                </div>
-
-                <div class="swiper-slide box">
-                    <div class="icons">
-                        <a href="#" class="fas fa-search"></a>
-                        <a href="#" class="fas fa-eye"></a>
-                    </div>
-                    <div class="image">
-                        <img src="{{asset("assets/image/books/6.png")}}" alt="">
-                    </div>
-                    <div class="content">
-                        <h3>featured books</h3>
-                        <div class="price">৳15.99 <span>৳20.99</span></div>
-                        <a href="#" class="btn">Buy Now</a>
-                    </div>
-                </div>
-
-                <div class="swiper-slide box">
-                    <div class="icons">
-                        <a href="#" class="fas fa-search"></a>
-                        <a href="#" class="fas fa-eye"></a>
-                    </div>
-                    <div class="image">
-                        <img src="{{asset("assets/image/books/7.png")}}" alt="">
-                    </div>
-                    <div class="content">
-                        <h3>featured books</h3>
-                        <div class="price">৳15.99 <span>৳20.99</span></div>
-                        <a href="#" class="btn">Buy Now</a>
-                    </div>
-                </div>
-
-                <div class="swiper-slide box">
-                    <div class="icons">
-                        <a href="#" class="fas fa-search"></a>
-                        <a href="#" class="fas fa-eye"></a>
-                    </div>
-                    <div class="image">
-                        <img src="{{asset("assets/image/books/8.png")}}" alt="">
-                    </div>
-                    <div class="content">
-                        <h3>featured books</h3>
-                        <div class="price">৳15.99 <span>৳20.99</span></div>
-                        <a href="#" class="btn">Buy Now</a>
-                    </div>
-                </div>
-
-                <div class="swiper-slide box">
-                    <div class="icons">
-                        <a href="#" class="fas fa-search"></a>
-                        <a href="#" class="fas fa-eye"></a>
-                    </div>
-                    <div class="image">
-                        <img src="{{asset("assets/image/books/9.png")}}" alt="">
-                    </div>
-                    <div class="content">
-                        <h3>featured books</h3>
-                        <div class="price">৳15.99 <span>৳20.99</span></div>
-                        <a href="#" class="btn">Buy Now</a>
-                    </div>
-                </div>
-
-                <div class="swiper-slide box">
-                    <div class="icons">
-                        <a href="#" class="fas fa-search"></a>
-                        <a href="#" class="fas fa-eye"></a>
-                    </div>
-                    <div class="image">
-                        <img src="{{asset("assets/image/books/10.png")}}" alt="">
-                    </div>
-                    <div class="content">
-                        <h3>featured books</h3>
-                        <div class="price">৳15.99 <span>৳20.99</span></div>
-                        <a href="#" class="btn">Buy Now</a>
-                    </div>
-                </div>
+                @endforeach
 
             </div>
 
@@ -225,13 +90,14 @@
 
             <div class="swiper-wrapper">
 
+                @foreach($newbooks as $newbook)
                 <a href="#" class="swiper-slide box">
                     <div class="image">
-                        <img src="{{asset("assets/image/books/1.png")}}" alt="">
+                        <img src="{{asset('assets/image/'.$newbook->book_image)}}" alt="">
                     </div>
                     <div class="content">
-                        <h3>new arrivals</h3>
-                        <div class="price">৳15.99 <span>৳20.99</span></div>
+                        <h3>{{substr($newbook->book_name,0,28)}}</h3>
+                        <div class="price">৳ {{$newbook->book_sale_price}} <span>৳ {{$newbook->book_price}}</span></div>
                         <div class="stars">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -241,75 +107,7 @@
                         </div>
                     </div>
                 </a>
-
-                <a href="#" class="swiper-slide box">
-                    <div class="image">
-                        <img src="{{asset("assets/image/books/2.png")}}" alt="">
-                    </div>
-                    <div class="content">
-                        <h3>new arrivals</h3>
-                        <div class="price">৳15.99 <span>৳20.99</span></div>
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="#" class="swiper-slide box">
-                    <div class="image">
-                        <img src="{{asset("assets/image/books/3.png")}}" alt="">
-                    </div>
-                    <div class="content">
-                        <h3>new arrivals</h3>
-                        <div class="price">৳15.99 <span>৳20.99</span></div>
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="#" class="swiper-slide box">
-                    <div class="image">
-                        <img src="{{asset("assets/image/books/4.png")}}" alt="">
-                    </div>
-                    <div class="content">
-                        <h3>new arrivals</h3>
-                        <div class="price">৳15.99 <span>৳20.99</span></div>
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="#" class="swiper-slide box">
-                    <div class="image">
-                        <img src="{{asset("assets/image/books/5.png")}}" alt="">
-                    </div>
-                    <div class="content">
-                        <h3>new arrivals</h3>
-                        <div class="price">৳15.99 <span>৳20.99</span></div>
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                    </div>
-                </a>
-
+                @endforeach
             </div>
 
         </div>
@@ -317,14 +115,14 @@
         <div class="swiper arrivals-slider">
 
             <div class="swiper-wrapper">
-
+                @foreach($oldbooks as $oldbook)
                 <a href="#" class="swiper-slide box">
                     <div class="image">
-                        <img src="{{asset("assets/image/books/6.png")}}" alt="">
+                        <img src="{{asset('assets/image/'.$oldbook->book_image)}}" alt="">
                     </div>
                     <div class="content">
-                        <h3>new arrivals</h3>
-                        <div class="price">৳15.99 <span>৳20.99</span></div>
+                        <h3>{{substr($oldbook->book_name,0,28)}}</h3>
+                        <div class="price">৳ {{$oldbook->book_sale_price}} <span>৳ {{$oldbook->book_price}}</span></div>
                         <div class="stars">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -333,76 +131,8 @@
                             <i class="fas fa-star-half-alt"></i>
                         </div>
                     </div>
-                </a>
-
-                <a href="#" class="swiper-slide box">
-                    <div class="image">
-                        <img src="{{asset("assets/image/books/7.png")}}" alt="">
-                    </div>
-                    <div class="content">
-                        <h3>new arrivals</h3>
-                        <div class="price">৳15.99 <span>৳20.99</span></div>
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="#" class="swiper-slide box">
-                    <div class="image">
-                        <img src="{{asset("assets/image/books/8.png")}}" alt="">
-                    </div>
-                    <div class="content">
-                        <h3>new arrivals</h3>
-                        <div class="price">৳15.99 <span>৳20.99</span></div>
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="#" class="swiper-slide box">
-                    <div class="image">
-                        <img src="{{asset("assets/image/books/9.png")}}" alt="">
-                    </div>
-                    <div class="content">
-                        <h3>new arrivals</h3>
-                        <div class="price">৳15.99 <span>৳20.99</span></div>
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="#" class="swiper-slide box">
-                    <div class="image">
-                        <img src="{{asset("assets/image/books/10.png")}}" alt="">
-                    </div>
-                    <div class="content">
-                        <h3>new arrivals</h3>
-                        <div class="price">৳15.99 <span>৳20.99</span></div>
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                    </div>
-                </a>
-
+                </a>                
+                @endforeach
             </div>
 
         </div>

@@ -15,7 +15,7 @@
             <div class="swiper books-slider">
                 <div class="swiper-wrapper">
                     @foreach($newbooks as $newbook)
-                    <a href="#" class="swiper-slide"><img src="{{asset('assets/image/'.$newbook->book_image)}}" alt=""></a>
+                    <a href="{{route('book_details',$newbook->id)}}" class="swiper-slide"><img src="{{asset('assets/image/'.$newbook->book_image)}}" alt=""></a>
                     @endforeach
                 </div>
                 <img src="{{asset("assets/image/stand.png")}}" class="stand" alt="">
@@ -41,10 +41,10 @@
                 <div class="swiper-slide box">
                     <div class="icons">
                         <a href="#" class="fas fa-search"></a>
-                        <a href="#" class="fas fa-eye"></a>
+                        <a href="{{route('book_details',$book->id)}}" class="fas fa-eye"></a>
                     </div>
                     <div class="image">
-                        <img src="{{asset('assets/image/'.$book->book_image)}}" alt="">
+                        <a href="{{route('book_details',$book->id)}}"><img src="{{asset('assets/image/'.$book->book_image)}}" alt=""></a>                        
                     </div>
                     <div class="content">
                         <h3>{{substr($book->book_name,0,28)}}</h3>
@@ -91,7 +91,7 @@
             <div class="swiper-wrapper">
 
                 @foreach($newbooks as $newbook)
-                <a href="#" class="swiper-slide box">
+                <a href="{{route('book_details',$newbook->id)}}" class="swiper-slide box">
                     <div class="image">
                         <img src="{{asset('assets/image/'.$newbook->book_image)}}" alt="">
                     </div>
@@ -116,7 +116,7 @@
 
             <div class="swiper-wrapper">
                 @foreach($oldbooks as $oldbook)
-                <a href="#" class="swiper-slide box">
+                <a href="{{route('book_details',$oldbook->id)}}" class="swiper-slide box">
                     <div class="image">
                         <img src="{{asset('assets/image/'.$oldbook->book_image)}}" alt="">
                     </div>

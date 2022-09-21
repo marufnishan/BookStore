@@ -26,7 +26,7 @@
 
         <div class="header-1">
 
-            <a href="#" class="logo"> <i class="fas fa-book"></i> Hearts Medi Study </a>
+            <a href="{{route("home")}}" class="logo"> <i class="fas fa-book"></i> Hearts Medi Study </a>
 
             <form action="" class="search-form">
                 <input type="search" name="" placeholder="search here..." id="search-box">
@@ -63,7 +63,7 @@
 
         <div class="header-2">
             <nav class="navbar" >
-                <a href="#home">home</a>
+                <a href="{{route("home")}}">home</a>
                 <a href="{{route("author_dashboard")}}">Dashboard</a>
                 <a href="#">all books</a>
                 <a href="#home">sale books</a>

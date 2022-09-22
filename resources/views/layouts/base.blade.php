@@ -14,6 +14,8 @@
 
     <!-- custom css file link  -->
     <link rel="stylesheet" href="{{asset("assets/css/style.css")}}">
+    <!-- togle div css -->
+    <link rel="stylesheet" href="toglediv.css">
     @livewireStyles
 </head>
 
@@ -155,6 +157,26 @@
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
     <!-- custom js file link  -->
     <script src="{{asset("assets/js/script.js")}}"></script>
+    <!-- toggle js file link  -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    {{-- toggle script --}}
+    <script>
+		$(document).ready(function(){
+			$(".content .tab_content").hide();
+			$(".content .tab_content:first-child").show();
+
+			$("ul li").click(function(){
+			  
+			  $("ul li").removeClass("active");
+			  $(this).addClass("active");
+			  
+			  var current_tab = $(this).attr("data-list");
+			  $(".content .tab_content").hide();
+			  $("."+current_tab).show();
+			})
+		});
+	</script>
+    {{-- toggle script close --}}
 
     @if (!Auth::user())
     <script>

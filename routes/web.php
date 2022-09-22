@@ -6,13 +6,17 @@ use App\Http\Livewire\BackEnd\AuthorDashboardComponent;
 use App\Http\Livewire\BackEnd\AuthorReadBook;
 use App\Http\Livewire\FrontEnd\DetailsComponent;
 use App\Http\Livewire\FrontEnd\HomeComponent;
+use App\Http\Livewire\FrontEnd\ReadBookIndexComponent;
 use Illuminate\Support\Facades\Route;
 
 
 
-
+//User
 Route::get('/',HomeComponent::class)->name('home');
 Route::get('/book_details/{id}',DetailsComponent::class)->name('book_details');
+Route::get('/read_book_index/{id}',ReadBookIndexComponent::class)->name('read_book_index');
+
+//Author
 Route::get('/author/dashboard',AuthorDashboardComponent::class)->name('author_dashboard');
 Route::get('/author/books',AuthorBookComponent::class)->name('author_books');
 Route::get('/author/add_book',AuthorAddBookComponent::class)->name('author_add_book');

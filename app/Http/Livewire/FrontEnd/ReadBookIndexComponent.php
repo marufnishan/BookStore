@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Livewire\BackEnd;
+namespace App\Http\Livewire\FrontEnd;
 
 use App\Models\Book;
 use Livewire\Component;
 
-class AuthorReadBook extends Component
+class ReadBookIndexComponent extends Component
 {
     public $book;
     public function mount($id){
@@ -13,6 +13,6 @@ class AuthorReadBook extends Component
     }
     public function render()
     {
-        return view('livewire.back-end.author-read-book')->layout('layouts.read');
+        return view('livewire.front-end.read-book-index-component')->layout('layouts.read');
     }
 }

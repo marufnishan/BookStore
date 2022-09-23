@@ -1,10 +1,11 @@
 <div>
     <div class="panel-body p-3 p-md-5">
-        <a href="{{route("author_add_book")}}"><button class="btn btn-info my-3">Add New Book</button></a>        
+        <a href="{{route("author_add_book")}}"><button class="btn btn-info my-3">Add New Book</button></a> 
+        <div class="table-data" >                   
         <div class="table-responsive rounded-3">            
             <table class="table table-striped">
                 <thead>
-                    <tr style="background:#009688;color: white;">
+                    <tr style="background-color: rgb(0, 109, 128);color: white;">
                         <th>ID</th>
                         <th>Book Name</th>
                         <th>Book Author Name</th>
@@ -21,7 +22,7 @@
                         <th colspan="2" class="text-center">Action</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="tbldta" >
                     @foreach($books as $book)
                     <tr>
                         <td>{{$book->id}}</td>
@@ -56,6 +57,7 @@
                 </tbody>
             </table>
             {{-- {{$books->links()}} --}}
+        </div>
         </div>
     </div>
 </div>

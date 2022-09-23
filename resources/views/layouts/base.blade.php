@@ -39,34 +39,51 @@
                 <div id="search-btn" class="fas fa-search"></div>
                 @if (Auth::user())
                 <div class="dropdown">
-                    <button style="background-color: white;"><div  style="color: rgb(0, 109, 128);" class="fas fa-user"></div></button>
-                    <div class="dropdown-content">    
-                    @if(Auth::user()->profile_photo_path)
-                    <a href="#"> <img style="height: 50px;weidth:50px;" src="{{asset('assets/image/'.Auth::user()->profile_photo_path)}}"
-                        alt="{{ Auth::user()->name }}" /></a>
-                    <a href="#"> <p style="font-size: 16px;"> <b>Name : </b>{{ Auth::user()->name }}</p></a>                     
-                    @else
-                    <a href="#"> <img class="h-12 w-12 rounded-full object-cover" src="{{Auth::user()->profile_photo_url}}"
-                        alt="{{ Auth::user()->name }}" />  <br> My Account</a>
-                    @endif
-                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Log Out</a>
-                    <form id="logout-form" method="POST" action="{{ route('logout') }}">
-                        @csrf
-                    </form>
+                    <button style="background-color: white;">
+                        <div style="color: rgb(0, 109, 128);" class="fas fa-user"></div>
+                    </button>
+                    <div class="dropdown-content">
+                        @if(Auth::user()->profile_photo_path)
+                        <a href="#"> <img style="height: 50px;weidth:50px;"
+                                src="{{asset('assets/image/'.Auth::user()->profile_photo_path)}}"
+                                alt="{{ Auth::user()->name }}" /></a>
+                        <a href="#">
+                            <p style="font-size: 16px;"> <b>Name : </b>{{ Auth::user()->name }}</p>
+                        </a>
+                        @else
+                        <a href="#"> <img class="h-12 w-12 rounded-full object-cover"
+                                src="{{Auth::user()->profile_photo_url}}" alt="{{ Auth::user()->name }}" /> <br> My
+                            Account</a>
+                        @endif
+                        <a href="{{ route('logout') }}"
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Log
+                            Out</a>
+                        <form id="logout-form" method="POST" action="{{ route('logout') }}">
+                            @csrf
+                        </form>
                     </div>
-                  </div>
+                </div>
                 @else
                 <div id="login-btn" style="color: rgb(0, 109, 128);" class="fas fa-user"></div>
                 @endif
-                        
+
             </div>
 
         </div>
 
         <div class="header-2">
-            <nav class="navbar" >
+            <nav class="navbar">
                 <a href="{{route("home")}}">home</a>
+                @if(Route::has('login'))
+                @auth
+                @if(Auth::user()->utype === 'ATR')
                 <a href="{{route("author_dashboard")}}">Dashboard</a>
+                @elseif(Auth::user()->utype === 'STD')
+                <a href="#">Dashboard</a>
+                @endif
+                @else
+                @endif
+                @endif
                 <a href="#">all books</a>
                 <a href="#home">sale books</a>
                 <a href="#featured">featured</a>
@@ -161,47 +178,49 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     {{-- toggle script --}}
     <script>
-		$(document).ready(function(){
-			$(".content .tab_content").hide();
-			$(".content .tab_content:first-child").show();
+        $(document).ready(function () {
+            $(".content .tab_content").hide();
+            $(".content .tab_content:first-child").show();
 
-			$("ul li").click(function(){
-			  
-			  $("ul li").removeClass("active");
-			  $(this).addClass("active");
-			  
-			  var current_tab = $(this).attr("data-list");
-			  $(".content .tab_content").hide();
-			  $("."+current_tab).show();
-			})
-		});
-	</script>
+            $("ul li").click(function () {
+
+                $("ul li").removeClass("active");
+                $(this).addClass("active");
+
+                var current_tab = $(this).attr("data-list");
+                $(".content .tab_content").hide();
+                $("." + current_tab).show();
+            })
+        });
+
+    </script>
     {{-- toggle script close --}}
 
     @if (!Auth::user())
     <script>
         let loginForm = document.querySelector('.login-form-container');
 
-        document.querySelector('#login-btn').onclick = () =>{
-        loginForm.classList.toggle('active');
+        document.querySelector('#login-btn').onclick = () => {
+            loginForm.classList.toggle('active');
         }
 
-        document.querySelector('#close-login-btn').onclick = () =>{
-        loginForm.classList.remove('active');
+        document.querySelector('#close-login-btn').onclick = () => {
+            loginForm.classList.remove('active');
         }
 
         let signupForm = document.querySelector('.signup-form-container');
 
-        document.querySelector('#signup-btn').onclick = () =>{
-        signupForm.classList.toggle('active');
+        document.querySelector('#signup-btn').onclick = () => {
+            signupForm.classList.toggle('active');
         }
 
-        document.querySelector('#close-signup-btn').onclick = () =>{
-        signupForm.classList.remove('active');
+        document.querySelector('#close-signup-btn').onclick = () => {
+            signupForm.classList.remove('active');
         }
+
     </script>
-                @endif
-    
+    @endif
+
     @livewireScripts
 
 

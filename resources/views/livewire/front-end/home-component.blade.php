@@ -69,10 +69,13 @@
     <!-- newsletter section starts -->
 
     <section class="newsletter">
-
-        <form action="">
+        
+        <form wire:submit.prevent="subscription">
             <h3>subscribe for latest updates</h3>
-            <input type="email" name="" placeholder="enter your email" id="" class="box">
+            @if(Session::has('message'))
+                        <h3 class="alert alert-success" role="alert">{{Session::get('message')}}</h3>
+                        @endif
+            <input type="email" name="" placeholder="enter your email" id="" class="box" wire:model="subscription_email">
             <input type="submit" value="subscribe" class="btn">
         </form>
 

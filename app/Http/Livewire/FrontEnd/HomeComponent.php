@@ -3,10 +3,20 @@
 namespace App\Http\Livewire\FrontEnd;
 
 use App\Models\Book;
+use App\Models\Subscription;
 use Livewire\Component;
 
 class HomeComponent extends Component
 {
+    public $subscription_email;
+    protected $rules = ['subscription_email' => 'required|unique:subscription_email'];
+    public function subscription(){
+        $email = new Subscription();
+        $email->subscription_email = $this->subscription_email;
+        $email->save();
+        session()->flash('message', 'Subscription Done !!');
+
+    }
     public function render()
     {
         $books = Book::get();

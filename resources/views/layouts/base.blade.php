@@ -79,7 +79,7 @@
                 @if(Auth::user()->utype === 'ATR')
                 <a href="{{route("author_dashboard")}}">Dashboard</a>
                 @elseif(Auth::user()->utype === 'STD')
-                <a href="#">Dashboard</a>
+                <a href="{{route('student_dashboard')}}">Dashboard</a>
                 @endif
                 @else
                 @endif

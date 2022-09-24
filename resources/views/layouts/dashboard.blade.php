@@ -23,7 +23,33 @@
             <i class='bx bxs-book' style="color: rgb(0, 109, 128)"></i>
             <span class="text" style="color: rgb(0, 109, 128)">Hearts Medi Study</span>
         </a>
-        <ul class="side-menu top">
+        <ul class="side-menu top">            
+            @if(Auth::user()->utype === 'STD')
+            <li class="active">
+                <a href="{{route("student_dashboard")}}">
+                    <i class='bx bxs-dashboard'></i>
+                    <span class="text">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-book-alt'></i>
+                    <span class="text">My Books</span>
+                </a>
+            </li>            
+            <li>
+                <a href="#">
+                    <i class='bx bxs-doughnut-chart'></i>
+                    <span class="text">My Course</span>
+                </a>
+            </li>            
+            <li>
+                <a href="#">
+                    <i class='bx bxs-message-dots'></i>
+                    <span class="text">Message</span>
+                </a>
+            </li>
+            @else
             <li class="active">
                 <a href="{{route("author_dashboard")}}">
                     <i class='bx bxs-dashboard'></i>
@@ -35,13 +61,13 @@
                     <i class='bx bxs-book-alt'></i>
                     <span class="text">Books</span>
                 </a>
-            </li>
+            </li>            
             <li>
                 <a href="#">
                     <i class='bx bxs-doughnut-chart'></i>
                     <span class="text">Course</span>
                 </a>
-            </li>
+            </li>            
             <li>
                 <a href="#">
                     <i class='bx bxs-message-dots'></i>
@@ -54,14 +80,24 @@
                     <span class="text">Users</span>
                 </a>
             </li>
+            @endif
         </ul>
         <ul class="side-menu">
+            @if(Auth::user()->utype === 'STD')
+            <li>
+                <a href="#">
+                    <i class='bx bxs-cog'></i>
+                    <span class="text">My profile</span>
+                </a>
+            </li>
+            @else
             <li>
                 <a href="#">
                     <i class='bx bxs-cog'></i>
                     <span class="text">Settings</span>
                 </a>
             </li>
+            @endif
             <li>
                 <a href="{{ route('logout') }}"
                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="logout">

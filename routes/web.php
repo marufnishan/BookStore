@@ -8,6 +8,7 @@ use App\Http\Livewire\BackEnd\AuthorUserComponent;
 use App\Http\Livewire\FrontEnd\DetailsComponent;
 use App\Http\Livewire\FrontEnd\HomeComponent;
 use App\Http\Livewire\FrontEnd\ReadBookIndexComponent;
+use App\Http\Livewire\FrontEnd\StudentDashboardComponent;
 use Illuminate\Support\Facades\Route;
 
 
@@ -18,9 +19,9 @@ Route::get('/book_details/{id}',DetailsComponent::class)->name('book_details');
 Route::get('/read_book_index/{id}',ReadBookIndexComponent::class)->name('read_book_index');
 
 //User
-/* Route::middleware(['auth:sanctum','verified'])->group(function(){
-
-}); */
+Route::middleware(['auth:sanctum','verified'])->group(function(){
+    Route::get('/student/dashboard',StudentDashboardComponent::class)->name('student_dashboard');
+});
 
 //Author
 Route::middleware(['auth:sanctum','verified','authauthor'])->group(function(){

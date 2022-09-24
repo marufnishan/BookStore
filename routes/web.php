@@ -4,6 +4,7 @@ use App\Http\Livewire\BackEnd\AuthorAddBookComponent;
 use App\Http\Livewire\BackEnd\AuthorBookComponent;
 use App\Http\Livewire\BackEnd\AuthorDashboardComponent;
 use App\Http\Livewire\BackEnd\AuthorReadBook;
+use App\Http\Livewire\BackEnd\AuthorUserComponent;
 use App\Http\Livewire\FrontEnd\DetailsComponent;
 use App\Http\Livewire\FrontEnd\HomeComponent;
 use App\Http\Livewire\FrontEnd\ReadBookIndexComponent;
@@ -27,6 +28,8 @@ Route::middleware(['auth:sanctum','verified','authauthor'])->group(function(){
     Route::get('/author/books',AuthorBookComponent::class)->name('author_books');
     Route::get('/author/add_book',AuthorAddBookComponent::class)->name('author_add_book');
     Route::get('/author/read_book/{id}',AuthorReadBook::class)->name('author_read_book');
+    Route::get('/author/show/users',AuthorUserComponent::class)->name('author_show_users');
+
  });
 
 

@@ -1,6 +1,6 @@
 <div>
     <div class="panel-body p-3 p-md-5">
-        <a href="{{route("author_add_book")}}"><button class="btn btn-info my-3">Add New Book</button></a> 
+        <a href="{{route("author_add_book")}}"><div class="btn btn-primary my-3" style="background-color:#3C91E6 ">All Books</div></a> 
         <div class="table-data" >                   
         <div class="table-responsive rounded-3">            
             <table class="table table-striped">
@@ -44,7 +44,7 @@
                         <td>
                             <video width="120" height="60" controls>
                                 <source src="{{asset('assets/image/'.$book->book_demo_vedio)}}" type="video/mp4">
-                              </video>
+                            </video>
                         </td>
                         <td>{{$book->created_at}}</td>
                         <td>{{$book->updated_at}}</td>

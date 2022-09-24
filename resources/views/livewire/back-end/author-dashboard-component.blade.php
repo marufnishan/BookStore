@@ -106,32 +106,38 @@
                 </div>
                 <div class="todo">
                     <div class="head">
-                        <h3>Todos</h3>
-                        <i class='bx bx-plus'></i>
-                        <i class='bx bx-filter'></i>
+                        <h3>Pie Chart</h3>
                     </div>
-                    <ul class="todo-list">
-                        <li class="completed">
-                            <p>Todo List</p>
-                            <i class='bx bx-dots-vertical-rounded'></i>
-                        </li>
-                        <li class="completed">
-                            <p>Todo List</p>
-                            <i class='bx bx-dots-vertical-rounded'></i>
-                        </li>
-                        <li class="not-completed">
-                            <p>Todo List</p>
-                            <i class='bx bx-dots-vertical-rounded'></i>
-                        </li>
-                        <li class="completed">
-                            <p>Todo List</p>
-                            <i class='bx bx-dots-vertical-rounded'></i>
-                        </li>
-                        <li class="not-completed">
-                            <p>Todo List</p>
-                            <i class='bx bx-dots-vertical-rounded'></i>
-                        </li>
-                    </ul>
+                    <div class="container p-5">                 
+                        <div id="piechart" style="width: 100%; height: 400px;"></div>
+                    </div>                 
+                    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                    <script type="text/javascript">
+                        google.charts.load('current', {'packages':['corechart']});
+                        google.charts.setOnLoadCallback(drawChart);
+                 
+                        function drawChart() {
+                 
+                        var data = google.visualization.arrayToDataTable([
+                            ['Month Name', 'Registered User Count'],
+                 
+                                @php
+                                foreach($pieChart as $d) {
+                                    echo "['".$d->month_name."', ".$d->count."],";
+                                }
+                                @endphp
+                        ]);
+                 
+                          var options = {
+                            title: 'Users Growth',
+                            is3D: false,
+                          };
+                 
+                          var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+                 
+                          chart.draw(data, options);
+                        }
+                      </script>
                 </div>
             </div>
         </main>

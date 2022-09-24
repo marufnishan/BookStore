@@ -539,6 +539,12 @@ body {
 	#content nav .nav-link {
 		display: none;
 	}
+
+	#sidebar .brand {
+		font-size: 16px;
+		font-weight: 700;
+		height: 56px;
+	}
 }
 
 
@@ -589,6 +595,12 @@ body {
 	#content main .table-data .todo .todo-list {
 		min-width: 420px;
 	}
+
+	#sidebar .brand {
+		font-size: 16px;
+		font-weight: 700;
+		height: 56px;
+	}
 }
 
 #sidebar ol, ul {
@@ -598,4 +610,10 @@ body {
 
 #tbldta td{
 	color: var(--dark);
+}
+
+#tbldta img{
+	width: 36px;height: 36px;
+	object-fit: cover;
+	border-radius: 50%;
 }

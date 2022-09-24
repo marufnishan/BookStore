@@ -17,11 +17,11 @@
             
             <div class="wrapper" style="margin-top:10px">
                 <div class="tabs">
-                  <ul>
-                    <li style="display: inline;"><a href="{{route('read_book_index',$book->id)}}" class="readbtn">Read Book Index</a></li>
+                  <ul>                    
                     <li class="active" data-list="tab_1" style="display: inline;">
-                      <p class="readbtn">Book Details</p>
-                    </li>
+                        <p class="readbtn">Book Details</p>
+                      </li>
+                    <li style="display: inline;"><a href="{{route('read_book_index',$book->id)}}" class="readbtn">Read Book Index</a></li>
                     <li data-list="tab_2" style="display: inline;">
                         <p class="readbtn">Demo Vedio</p>
                     </li>                    

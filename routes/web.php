@@ -5,6 +5,7 @@ use App\Http\Livewire\BackEnd\AuthorBookComponent;
 use App\Http\Livewire\BackEnd\AuthorDashboardComponent;
 use App\Http\Livewire\BackEnd\AuthorReadBook;
 use App\Http\Livewire\BackEnd\AuthorUserComponent;
+use App\Http\Livewire\FrontEnd\AllBooksComponent;
 use App\Http\Livewire\FrontEnd\DetailsComponent;
 use App\Http\Livewire\FrontEnd\HomeComponent;
 use App\Http\Livewire\FrontEnd\ReadBookIndexComponent;
@@ -18,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',HomeComponent::class)->name('home');
 Route::get('/book_details/{id}',DetailsComponent::class)->name('book_details');
 Route::get('/read_book_index/{id}',ReadBookIndexComponent::class)->name('read_book_index');
+Route::get('/all_books',AllBooksComponent::class)->name('all_books');
 
 //User
 Route::middleware(['auth:sanctum','verified'])->group(function(){

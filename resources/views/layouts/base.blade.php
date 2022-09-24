@@ -84,12 +84,11 @@
                 @else
                 @endif
                 @endif
-                <a href="#">all books</a>
-                <a href="#home">sale books</a>
-                <a href="#featured">featured</a>
-                <a href="#arrivals">arrivals</a>
-                <a href="#reviews">reviews</a>
-                <a href="#blogs">blogs</a>
+                <a href="{{route("all_books")}}">all books</a>
+                <a href="http://localhost:8000#featured" target="_parent">featured</a>
+                <a href="http://localhost:8000#arrivals" target="_parent">arrivals</a>
+                <a href="http://localhost:8000#reviews" target="_parent">reviews</a>
+                <a href="http://localhost:8000#blogs" target="_parent">blogs</a>
             </nav>
         </div>
 
@@ -100,10 +99,10 @@
     <!-- bottom navbar  -->
 
     <nav class="bottom-navbar">
-        <a href="#home" class="fas fa-home"></a>
-        <a href="#arrivals" class="fas fa-tags"></a>
-        <a href="#reviews" class="fas fa-comments"></a>
-        <a href="#blogs" class="fas fa-blog"></a>        
+        <a href="http://localhost:8000#home" target="_parent" class="fas fa-home"></a>
+        <a href="{{route("all_books")}}" class="fas fa-tags"></a>
+        <a href="http://localhost:8000#reviews" target="_parent" class="fas fa-comments"></a>
+        <a href="http://localhost:8000#blogs" target="_parent" class="fas fa-blog"></a>        
         <a href="{{route("author_dashboard")}}" class="fas fa-list"></a>
     </nav>
 

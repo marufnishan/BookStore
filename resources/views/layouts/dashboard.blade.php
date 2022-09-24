@@ -32,7 +32,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="{{route('student_books')}}">
                     <i class='bx bxs-book-alt'></i>
                     <span class="text">My Books</span>
                 </a>

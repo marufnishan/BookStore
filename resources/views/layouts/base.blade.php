@@ -30,10 +30,7 @@
 
             <a href="{{route("home")}}" class="logo"> <i class="fas fa-book"></i> Hearts Medi Study </a>
 
-            <form action="" class="search-form">
-                <input type="search" name="" placeholder="search here..." id="search-box">
-                <label for="search-box" class="fas fa-search"></label>
-            </form>
+            @livewire('front-end.search-component')
 
             <div class="icons">
                 <div id="search-btn" class="fas fa-search"></div>
@@ -175,6 +172,36 @@
     <script src="{{asset("assets/js/script.js")}}"></script>
     <!-- toggle js file link  -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    {{-- Search --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+        var path = "{{ route('autocompleteSearch') }}";
+      
+        $( "#search-box" ).autocomplete({
+            source: function( request, response ) {
+              $.ajax({
+                url: path,
+                type: 'GET',
+                dataType: "json",
+                data: {
+                   search: request.term
+                },
+                success: function( data ) {
+                   response( data );
+                }
+              });
+            },
+            select: function (event, ui) {
+               $('#search-box').val(ui.item.label);
+               console.log(ui.item); 
+               return false;
+            }
+          });
+      
+    </script>
+    {{-- Search Close--}}
     {{-- toggle script --}}
     <script>
         $(document).ready(function () {

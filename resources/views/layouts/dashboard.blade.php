@@ -118,9 +118,9 @@
         <nav>
             <i class='bx bx-menu'></i>
             <a href="#" class="nav-link">Search Book</a>
-            <form action="#">
+            <form action="{{route('book_search')}}">
                 <div class="form-input">
-                    <input type="search" placeholder="Search...">
+                    <input type="search" name="search" id="search-box" placeholder="Search...">
                     <button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
                 </div>
             </form>             
@@ -146,6 +146,37 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous">
     </script>
+
+    {{-- Search --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+        var path = "{{ route('autocompleteSearch') }}";
+      
+        $( "#search-box" ).autocomplete({
+            source: function( request, response ) {
+              $.ajax({
+                url: path,
+                type: 'GET',
+                dataType: "json",
+                data: {
+                   search: request.term
+                },
+                success: function( data ) {
+                   response( data );
+                }
+              });
+            },
+            select: function (event, ui) {
+               $('#search-box').val(ui.item.label);
+               console.log(ui.item); 
+               return false;
+            }
+          });
+      
+    </script>
+    {{-- Search Close--}}
 
     
     @livewireScripts

@@ -48,9 +48,9 @@
                         </td>
                         <td>{{$book->created_at}}</td>
                         <td>{{$book->updated_at}}</td>
-                        <td style="width: 6rem"> <a href="{{-- {{route('admin.editcoupon',['coupon_id'=>$coupon->id])}} --}}"><span style="font-size: 2rem; color:rgb(5, 128, 133)"><i class="fa-regular fa-pen-to-square"></i></span></a>
+                        <td style="width: 6rem"> <a href="{{route('author_edit_book',$book->id)}}"><span style="font-size: 2rem; color:rgb(5, 128, 133)"><i class="fa-regular fa-pen-to-square"></i></span></a>
                     <a href="#" onclick="confirm('Are you sure,You want to delete this coupon ?') || event.stopImmediatePropagation()"
-                       {{--  wire:click.prevent="deleteCoupon({{$coupon->id}})" --}}
+                        wire:click.prevent="deleteBook({{$book->id}})"
                         style="margin-left:10px;"><span style="font-size: 2rem; color:rgb(122, 21, 21)"><i class="fa-solid fa-trash"></i></span></a></td>
                     </tr>
                     @endforeach

@@ -49,6 +49,12 @@
                     <span class="text">Message</span>
                 </a>
             </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-calendar-check'></i>
+                    <span class="text">My Orders</span>
+                </a>
+            </li>
             @else
             <li class="active">
                 <a href="{{route("author_dashboard")}}">
@@ -72,6 +78,12 @@
                 <a href="#">
                     <i class='bx bxs-message-dots'></i>
                     <span class="text">Message</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-calendar-check'></i>
+                    <span class="text">Orders</span>
                 </a>
             </li>
             <li>

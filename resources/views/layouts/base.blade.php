@@ -82,10 +82,10 @@
                 @endif
                 @endif
                 <a href="{{route("all_books")}}">all books</a>
-                <a href="http://localhost:8000#featured" target="_parent">featured</a>
-                <a href="http://localhost:8000#arrivals" target="_parent">arrivals</a>
-                <a href="http://localhost:8000#reviews" target="_parent">reviews</a>
-                <a href="http://localhost:8000#blogs" target="_parent">blogs</a>
+                <a href="{{route("home")}}#featured" target="_parent">featured</a>
+                <a href="{{route("home")}}#arrivals" target="_parent">arrivals</a>
+                <a href="{{route("home")}}#reviews" target="_parent">reviews</a>
+                <a href="{{route("home")}}#blogs" target="_parent">blogs</a>
             </nav>
         </div>
 
@@ -96,10 +96,10 @@
     <!-- bottom navbar  -->
 
     <nav class="bottom-navbar">
-        <a href="http://localhost:8000#home" target="_parent" class="fas fa-home"></a>
+        <a href="{{route("home")}}#home" target="_parent" class="fas fa-home"></a>
         <a href="{{route("all_books")}}" class="fas fa-tags"></a>
-        <a href="http://localhost:8000#reviews" target="_parent" class="fas fa-comments"></a>
-        <a href="http://localhost:8000#blogs" target="_parent" class="fas fa-blog"></a>        
+        <a href="{{route("home")}}#reviews" target="_parent" class="fas fa-comments"></a>
+        <a href="{{route("home")}}#blogs" target="_parent" class="fas fa-blog"></a>        
         <a href="{{route("author_dashboard")}}" class="fas fa-list"></a>
     </nav>
 
@@ -131,17 +131,17 @@
 
             <div class="box">
                 <h3>quick links</h3>
-                <a href="#"> <i class="fas fa-arrow-right"></i> Home </a>
-                <a href="#"> <i class="fas fa-arrow-right"></i> All Books </a>
-                <a href="#"> <i class="fas fa-arrow-right"></i> Featured Books </a>
-                <a href="#"> <i class="fas fa-arrow-right"></i> Arrivals Books </a>
+                <a href="{{route("home")}}#home"> <i class="fas fa-arrow-right"></i> Home </a>
+                <a href="{{route("all_books")}}"> <i class="fas fa-arrow-right"></i> All Books </a>
+                <a href="{{route("home")}}#featured"> <i class="fas fa-arrow-right"></i> Featured Books </a>
+                <a href="{{route("home")}}#arrivals"> <i class="fas fa-arrow-right"></i> Arrivals Books </a>
             </div>
 
             <div class="box">
                 <h3>extra links</h3>
-                <a href="#"> <i class="fas fa-arrow-right"></i> Hearts Medi Study </a>
-                <a href="#"> <i class="fas fa-arrow-right"></i> Reviews </a>
-                <a href="#"> <i class="fas fa-arrow-right"></i> Blogs </a>
+                <a href="{{route("home")}}"> <i class="fas fa-arrow-right"></i> Hearts Medi Study </a>
+                <a href="{{route("home")}}#reviews"> <i class="fas fa-arrow-right"></i> Reviews </a>
+                <a href="{{route("home")}}#blogs"> <i class="fas fa-arrow-right"></i> Blogs </a>
             </div>
 
             <div class="box">

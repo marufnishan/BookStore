@@ -44,9 +44,9 @@
                 </a>
             </li>            
             <li>
-                <a href="#">
+                <a href="{{route("messages")}}">
                     <i class='bx bxs-message-dots'></i>
-                    <span class="text">Message</span>
+                    <span class="text">Message (@include('messenger.unread-count'))</span>
                 </a>
             </li>
             <li>
@@ -75,9 +75,9 @@
                 </a>
             </li>            
             <li>
-                <a href="#">
+                <a href="{{route('messages')}}">
                     <i class='bx bxs-message-dots'></i>
-                    <span class="text">Message</span>
+                    <span class="text">Message (@include('messenger.unread-count'))</span>
                 </a>
             </li>
             <li>
@@ -138,9 +138,9 @@
             </form>             
             <input type="checkbox" id="switch-mode" hidden>
             <label for="switch-mode" class="switch-mode"></label>
-            <a href="#" class="notification">
+            <a href="{{route('messages')}}" class="notification">
                 <i class='bx bxs-bell'></i>
-                <span class="num">8</span>
+                <span class="num">@include('messenger.unread-count')</span>
             </a>
             @if(Auth::user()->profile_photo_path)
             <a class="profile" href="#"> <img src="{{asset('assets/image/'.Auth::user()->profile_photo_path)}}"

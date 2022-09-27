@@ -86,6 +86,7 @@
                 <a href="{{route("home")}}#arrivals" target="_parent">arrivals</a>
                 <a href="{{route("home")}}#reviews" target="_parent">reviews</a>
                 <a href="{{route("home")}}#blogs" target="_parent">blogs</a>
+                <a href="{{route('messages')}}" target="_parent">Message</a>
             </nav>
         </div>
 
@@ -99,7 +100,7 @@
         <a href="{{route("home")}}#home" target="_parent" class="fas fa-home"></a>
         <a href="{{route("all_books")}}" class="fas fa-tags"></a>
         <a href="{{route("home")}}#reviews" target="_parent" class="fas fa-comments"></a>
-        <a href="{{route("home")}}#blogs" target="_parent" class="fas fa-blog"></a>        
+        <a href="{{route('messages')}}" target="_parent" class="fas fa-blog"></a>        
         <a href="{{route("author_dashboard")}}" class="fas fa-list"></a>
     </nav>
 

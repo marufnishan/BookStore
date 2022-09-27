@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MessagesController;
 use App\Http\Livewire\BackEnd\AuthorAddBookComponent;
 use App\Http\Livewire\BackEnd\AuthorBookComponent;
 use App\Http\Livewire\BackEnd\AuthorDashboardComponent;
@@ -42,6 +43,14 @@ Route::middleware(['auth:sanctum','verified','authauthor'])->group(function(){
     Route::get('/author/show/users',AuthorUserComponent::class)->name('author_show_users');
 
  });
+
+
+    Route::get('/messages', [MessagesController::class, 'index'])->name('messages');
+    Route::get('/messages/create', [MessagesController::class, 'create'])->name('messages.create');
+    Route::post('/messages', [MessagesController::class, 'store'])->name('messages.store');
+    Route::get('/messages/{thread}', [MessagesController::class, 'show'])->name('messages.show');
+    Route::put('/messages/{thread}', [MessagesController::class, 'update'])->name('messages.update');
+    Route::delete('/messages/{thread}', [MessagesController::class, 'destroy'])->name('messages.destroy');
 
 
 Route::middleware([

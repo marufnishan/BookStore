@@ -1130,3 +1130,8 @@ section {
   font-size: 16px;
 
 }
+
+/* messagecontainer */
+.msgcon {
+    padding: 0rem 7%;
+}

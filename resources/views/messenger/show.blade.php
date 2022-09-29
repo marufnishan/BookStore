@@ -1,22 +1,20 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="text-xl font-semibold leading-tight text-gray-800">
-            {{ $thread->subject }}
-        </h2>
-    </x-slot>
+    @extends('layouts.message') 
 
     <div class="py-12">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
+                    <h3>Show Messages</h3>
+                    <hr style="2px solid black">
                     <div class="col-md-6">
                         <div class="space-y-4">
                             @foreach ($thread->messages as $message)
-                                <div class="px-4 py-2 leading-relaxed border rounded-lg sm:px-6 sm:py-4">
-                                    <strong>{{ $message->user->name }}</strong>
-                                    <span class="text-xs text-gray-400">{{ $message->created_at->diffForHumans() }}
+                                <div class=" py-2 leading-relaxed border rounded-lg sm:px-12 sm:py-4">
+                                    <strong text-lg>{{ $message->user->name }}</strong>
+                                    <span class="text-sm text-green-400">{{ $message->created_at->diffForHumans() }}
                                     </span>
-                                    <p class="text-sm">
+                                    <p class="text-lg">
                                         {{ $message->body }}
                                     </p>
                                 </div>
@@ -35,7 +33,7 @@
                             </div>
 
                             <!-- Submit Form Input -->
-                            <div class="mt-4">
+                            <div class="mt-4 mb-4">
                                 <x-button>Submit</x-button>
                             </div>
                         </form>

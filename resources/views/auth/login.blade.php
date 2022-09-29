@@ -1,7 +1,9 @@
-{{-- <x-guest-layout>
+<x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-            <x-jet-authentication-card-logo />
+            <a href="{{route("home")}}" class="logo" style="font-size: 2rem;
+            font-weight: bolder;
+            color: rgb(0, 109, 128)"> <i class="fas fa-book"></i> Hearts Medi Study </a>
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />
@@ -46,4 +48,4 @@
         </form>
     </x-jet-authentication-card>
 </x-guest-layout>
- --}}
+

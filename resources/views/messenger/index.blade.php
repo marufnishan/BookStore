@@ -1,12 +1,11 @@
 <x-app-layout>
     @extends('layouts.message') 
-    <x-slot name="header">
+    {{-- <x-slot name="header">
         <h2 class="text-xl font-semibold leading-tight text-gray-800">
             {{ __('Messages') }}
         </h2>
-    </x-slot>
-
-    <div class="py-12">
+    </x-slot> --}}
+    <div class="py-12" >
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
@@ -15,11 +14,13 @@
                             {{ $message }}
                         </div>
                     @endif
+                    <h3>Messages</h3>
+                    <hr style="2px solid black">
 
-                    <div class="grid grid-cols-12 gap-x-4">
+                    <div class="grid grid-cols-12 gap-x-4">                        
                         <div class="col-span-3">
                             <a href="{{ route('messages.create') }}"
-                                class="block w-full p-2 text-center text-white bg-indigo-400 hover:bg-indigo-600">New
+                                class="block w-full p-2 text-center " style="background-color: rgb(0, 109, 128); hover:rgb(3, 50, 59);color:white">New
                                 Message</a>
                         </div>
                         <div class="col-span-9">

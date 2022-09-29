@@ -99,9 +99,18 @@
     <nav class="bottom-navbar">
         <a href="{{route("home")}}#home" target="_parent" class="fas fa-home"></a>
         <a href="{{route("all_books")}}" class="fas fa-tags"></a>
-        <a href="{{route("home")}}#reviews" target="_parent" class="fas fa-comments"></a>
-        <a href="{{route('messages')}}" target="_parent" class="fas fa-blog"></a>        
+        <a href="{{route("home")}}#blogs" target="_parent" class="fas fa-blog"></a>        
+        <a href="{{route('messages')}}" target="_parent" class="fas fa-comments"></a>
+        @if(Route::has('login'))
+                @auth
+                @if(Auth::user()->utype === 'ATR')        
         <a href="{{route("author_dashboard")}}" class="fas fa-list"></a>
+        @elseif(Auth::user()->utype === 'STD')
+        <a href="{{route("student_dashboard")}}" class="fas fa-list"></a>
+        @endif
+        @else
+        @endif
+        @endif
     </nav>
 
     <!-- login form  -->

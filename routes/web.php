@@ -44,14 +44,15 @@ Route::middleware(['auth:sanctum','verified','authauthor'])->group(function(){
 
  });
 
-
-    Route::get('/messages', [MessagesController::class, 'index'])->name('messages');
-    Route::get('/messages/create', [MessagesController::class, 'create'])->name('messages.create');
-    Route::post('/messages', [MessagesController::class, 'store'])->name('messages.store');
-    Route::get('/messages/{thread}', [MessagesController::class, 'show'])->name('messages.show');
-    Route::put('/messages/{thread}', [MessagesController::class, 'update'])->name('messages.update');
-    Route::delete('/messages/{thread}', [MessagesController::class, 'destroy'])->name('messages.destroy');
-
+ //Messages
+ Route::group(['middleware' => 'auth', 'prefix' => 'messages', 'as' => 'messages'], function () {
+    Route::get('/', [MessagesController::class, 'index']);
+    Route::get('/create', [MessagesController::class, 'create'])->name('.create');
+    Route::post('/', [MessagesController::class, 'store'])->name('.store');
+    Route::get('/{thread}', [MessagesController::class, 'show'])->name('.show');
+    Route::put('/{thread}', [MessagesController::class, 'update'])->name('.update');
+    Route::delete('/{thread}', [MessagesController::class, 'destroy'])->name('.destroy');
+});
 
 Route::middleware([
     'auth:sanctum',

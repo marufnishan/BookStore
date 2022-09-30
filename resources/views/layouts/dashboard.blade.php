@@ -97,7 +97,7 @@
         <ul class="side-menu">
             @if(Auth::user()->utype === 'STD')
             <li>
-                <a href="#">
+                <a href="{{route('student_profile')}}">
                     <i class='bx bxs-cog'></i>
                     <span class="text">My profile</span>
                 </a>

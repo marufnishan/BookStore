@@ -1,7 +1,8 @@
 <div>
     <div class="panel-body p-3 p-md-5">
         <div class="btn btn-primary my-3" style="background-color:#3C91E6 ">All Users</div> 
-        <div class="table-data" >                             
+        <div class="table-data" >
+            <div id="tbl" class="p-1 p-md-5 rounded-3">                                             
         <div class="table-responsive rounded-3">            
             <table class="table table-striped">
                 <thead>
@@ -38,6 +39,7 @@
             </table>
             {{-- {{$users->links()}} --}}
         </div>
+            </div>
         </div>
     </div>
 </div>

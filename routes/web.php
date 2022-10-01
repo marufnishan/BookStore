@@ -15,6 +15,7 @@ use App\Http\Livewire\FrontEnd\ReadBookIndexComponent;
 use App\Http\Livewire\FrontEnd\SearchComponent;
 use App\Http\Livewire\FrontEnd\StudentBookComponent;
 use App\Http\Livewire\FrontEnd\StudentDashboardComponent;
+use App\Http\Livewire\FrontEnd\StudentEditProfile;
 use App\Http\Livewire\FrontEnd\StudentProfileComponent;
 use Illuminate\Support\Facades\Route;
 
@@ -33,6 +34,7 @@ Route::middleware(['auth:sanctum','verified'])->group(function(){
     Route::get('/student/dashboard',StudentDashboardComponent::class)->name('student_dashboard');
     Route::get('/student/books',StudentBookComponent::class)->name('student_books');
     Route::get('/student/profile',StudentProfileComponent::class)->name('student_profile');
+    Route::get('/student/edit_profile',StudentEditProfile::class)->name('student_edit_profile');
 });
 
 //Author

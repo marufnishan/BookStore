@@ -14,12 +14,15 @@
 
                 <div class="col-md-12" id="dashboard" style="height:95vh; overflow-y: scroll; padding:0px; margin:0; ">
                     <div class="row py-3 p-md-5">
+                        @if(Session::has('message'))
+                                <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
+                                @endif
                         <div id="tbl" class="panel panel-default p-5 rounded-3">
                             <div class="panel-heading rounded-3"
                                 style="background: linear-gradient(to right, #74ebd5, #acb6e5);     padding: 13px 31px;">
                                 Profile
                             </div>
-                            <div class="panel-body">
+                            <div class="panel-body">                                
                                 <div class="table-responsive">
                                     <div class="row">                                        
                                     <div class="col-md-4 my-3">
@@ -35,12 +38,12 @@
                                         <p><b>Email : </b>{{Auth::user()->email}}</p>
                                         <p><b>Phone : </b>{{Auth::user()->phone}}</p>
                                         <hr>
-                                        <p><b>Institution Name : </b>{{-- {{$user->profile->line1}} --}}</p>
-                                        <p><b>Academic Qualification : </b>{{-- {{$user->profile->line1}} --}}</p>
-                                        <p><b>Address : </b>{{-- {{$user->profile->line1}} --}}</p>                                        
-                                        <p><b>Alernative Email : </b>{{-- {{$user->profile->line1}} --}}</p>                                        
-                                        <p><b>Alernative Phone : </b>{{-- {{$user->profile->line1}} --}}</p>                                        
-                                        <a href="{{-- {{route('user.editprofile')}} --}}" class="btn btn-info pull-right text-light">
+                                        <p><b>Institution Name : </b>{{Auth::user()->institution_name}}</p>
+                                        <p><b>Academic Qualification : </b>{{Auth::user()->academic_qualification}}</p>
+                                        <p><b>Address : </b>{{Auth::user()->address}}</p>                                        
+                                        <p><b>Alernative Email : </b>{{Auth::user()->alternative_email}}</p>                                        
+                                        <p><b>Alernative Phone : </b>{{Auth::user()->alternative_phone}}</p>                                        
+                                        <a href="{{route('student_edit_profile')}}" class="btn btn-info pull-right text-light">
                                             Update Profile
                                         </a>
                                     </div>

@@ -129,10 +129,10 @@
         <!-- NAVBAR -->
         <nav>
             <i class='bx bx-menu'></i>
-            <a href="#" class="nav-link">Search Book</a>
+            <a href="{{route('home')}}" class="nav-link">Home</a>
             <form action="{{route('book_search')}}">
                 <div class="form-input">
-                    <input type="search" name="search" id="search-box" placeholder="Search...">
+                    <input type="search" name="search" id="search-box" placeholder="Search Books...">
                     <button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
                 </div>
             </form>             

@@ -22,9 +22,9 @@ use Illuminate\Support\Facades\Route;
 
 
 //Common
-Route::get('/',HomeComponent::class)->name('home');
+Route::get('/',HomeComponent::class)->name('home')->middleware('devicelimit');
 Route::get('/book_details/{id}',DetailsComponent::class)->name('book_details');
-Route::get('/read_book_index/{id}',ReadBookIndexComponent::class)->name('read_book_index');
+Route::get('/read_book_index/{id}',ReadBookIndexComponent::class)->name('read_book_index')->middleware('devicelimit');
 Route::get('/all_books',AllBooksComponent::class)->name('all_books');
 Route::get('/autocomplete-search', [SearchComponent::class, 'autocompleteSearch'])->name('autocompleteSearch');
 Route::get('/book_search',BookSearchComponent::class)->name('book_search');

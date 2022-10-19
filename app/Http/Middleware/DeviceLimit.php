@@ -19,6 +19,7 @@ class DeviceLimit
      */
     public function handle(Request $request, Closure $next)
     {
+        if(Auth::user()){
         $this->userdevice =  DB::table('sessions')->where('user_id',$request->user()->id)->count();
         if($this->userdevice > 2)
         {
@@ -29,6 +30,7 @@ class DeviceLimit
         {
             return $next($request);
         }
+    }
         return $next($request);
     }
 }
